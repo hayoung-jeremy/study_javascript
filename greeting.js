@@ -23,6 +23,7 @@ function askForName() {
   form.addEventListener("submit", handleSubmit);
 }
 
+// user 정보가 없을 시 정보 입력창을 보여줌
 function paintGreeting(text) {
   form.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
