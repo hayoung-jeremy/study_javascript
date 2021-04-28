@@ -8,6 +8,8 @@ const TODOS_LS = "toDos";
 // const --> let 으로 바뀐 이유는, todolist에 할일을 추가 또는 삭제하면 이 배열이 변하기 때문
 let toDos = [];
 
+let newId = 0;
+
 // delete 원리 : 닫기 누른 버튼의 li 삭제,
 // 삭제한 li 를 filter()를 통해 걸러내고, 남은 li 들로 새 배열 만듦,
 // 새 배열로 현재 배열을 switch
@@ -42,7 +44,7 @@ function paintToDo(text) {
   const li = document.createElement("li");
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
-  const newId = toDos.length + 1;
+
   delBtn.innerText = "⨉";
   // 닫기 버튼 함수 호출
   delBtn.addEventListener("click", deleteToDo);
@@ -58,6 +60,7 @@ function paintToDo(text) {
   toDos.push(toDoObj);
   // 입력한 값을 localStorage에 저장
   saveToDos();
+  newId++;
 }
 
 // 할일을 작성하면 실행할 목록 :
